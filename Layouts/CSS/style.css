@@ -8,6 +8,8 @@
 
 :root{
     --color1: #26094A;
+    --color1-bright:#5313a2;
+    --color1-brighter:#8725ff;
     --color2: #FFD500;
     --color2-dark: #987f00;
     --color2-bright: #ffeb86;
@@ -239,3 +241,125 @@ body{
     transition: 0.3s;
 }
 /*RegisterPopUp -- Fin*/
+
+/*Home -- Inicio*/
+
+nav{
+    background: var(--color1-bright);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 3em;
+}
+
+nav .nav_title{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+nav .nav_title svg{
+    width: 2.5em;
+    height: 2.5em;
+}
+
+nav .nav_menu{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    height: 100%;
+}
+
+nav .nav_menu .nav_item{
+    display: grid;
+    align-items: center;
+    margin:0 0.5em;
+    padding: 0 0.5em;
+    height: 100%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+nav .nav_menu .nav_item:hover{
+    background: var(--color1-brighter);
+}
+
+
+.home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.home .article{
+    width: 40%;
+    background: white;
+    border-radius: 1em;
+    padding: 0 1em;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1em 0;
+}
+
+.home .article .article_author{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.home .article p{
+    text-align: justify;
+    margin: 1em 0;
+}
+
+.home .article img{
+    width: 100%;
+    object-fit: cover;
+    margin: 1em 0;
+}
+
+.home .article button{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 120%;
+    cursor: pointer;
+    border: none;
+    background: var(--color1-bright);
+    height: 3em;
+    transition: 0.3s;
+}
+
+.home .article button:hover{
+    background: var(--color1-brighter);
+    transition: 0.3s;
+}
+
+.home .article button:active{
+    background: var(--color1);
+    transition: 0.3s;
+}
+
+.home .article button p{
+    font-size: 2em;
+    color: white;
+}
+
+.home .article button svg{
+    width: 2em;
+    height: 2em;
+    fill: white
+}
+/*Home -- Fin*/
