@@ -5,3 +5,15 @@ This template should help get you started developing with Vue 3 in Vite. The tem
 ## Recommended IDE Setup
 
 - [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+
+### Para ejecutar el frontend primero se debe realizar el comando para instalar las dependencias necesarias:
+
+```sh
+npm install
+```
+
+### Una vez instaladas las dependencias se debe usar el comando:
+
+```sh
+npm run dev
+```
