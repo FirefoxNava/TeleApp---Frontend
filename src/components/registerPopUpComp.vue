@@ -1,0 +1,32 @@
+<template>
+    <section class="register_back">
+        <div class="register_container">
+            <div class="register_title">
+                <p>Registro</p>
+                <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"/>
+                </svg>
+            </div>
+            <form>
+                <input type="text" placeholder="Nombre">
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Contraseña">
+                <input type="password" placeholder="Confirmar contraseña">
+                <button type="submit">Registrarse</button>
+            </form>
+        </div>
+    </section>
+</template>
+
+<script>
+
+
+export default {
+  methods: {
+  },
+};
+</script>
+
+<style>
+@import "../assets/css/style.css";
+</style>

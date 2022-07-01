@@ -1,0 +1,747 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+}
+
+:root{
+    --color1: #26094A;
+    --color1-bright:#5313a2;
+    --color1-brighter:#8725ff;
+    --color2: #FFD500;
+    --color2-dark: #987f00;
+    --color2-bright: #ffeb86;
+}
+
+body{
+    width: 100%;
+    height: auto;
+    position: relative;
+    background: var(--color1);
+    display: grid;
+    place-items: center;
+    font-size: 20px;
+    position: relative;
+}
+
+/*Login -- Inicio*/
+
+.login_container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.login_container .login {
+    height: 100vh;
+    width: 25vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background: var(--color1);
+}
+
+.login_container .login .login_title{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.login_container .login .login_title svg{
+    width: 2.5em;
+    height: 2.5em;
+}
+
+
+.login_container .login form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 25%;
+    width: 80%;
+}
+
+.login_container .login form input{
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: white;
+    font-size: 1em;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.444);
+}
+
+.login_container .login form button {
+    cursor: pointer;
+    border: none;
+    font-size: 1em;
+    background: var(--color2);
+    padding: 1em;
+    border-radius: 1em;
+    transition: 0.3s;
+    font-weight: 600;
+}
+
+.login_container .login form button:hover {
+    background: var(--color2-bright);
+    color: white;
+    transition: 0.3s;
+}
+
+.login_container .login form button:active {
+    background: var(--color2-dark);
+    transition: 0.3s;
+}
+
+.login_container .login .login_advice{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    color: white;
+    font-size: 1em;
+}
+
+.login_container .login .login_advice a{
+    cursor: pointer;
+    transition: 0.3s;
+    padding: 0 1em;
+    border-radius: 1em;
+}
+
+.login_container .login .login_advice a:hover{
+    background: var(--color2);
+    transition: 0.3s;
+}
+
+.login_container .login .login_advice a:active{
+    background: var(--color2-dark);
+    transition: 0.3s;
+}
+
+.login_container .login_image {
+    height: 100%;
+    width: 75vw;
+}
+
+.login_container .login_image svg {
+    height: 100%;
+    width: 100%;
+}
+/*Login -- Fin*/
+
+
+/*RegisterPopUp -- Inicio*/
+
+.register_back{
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.486);
+    display: grid;
+    place-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    backdrop-filter: blur(2px);
+}
+
+.register_container{
+    width: 30%;
+    height: 80%;
+    background: var(--color1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 1em;
+}
+
+.register_container .register_title{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 1em;
+    color: rgba(255, 255, 255, 0.621);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.444);
+}
+
+.register_container .register_title p {
+    margin-left: 1em;
+}
+
+.register_container .register_title svg {
+    fill: red;
+    width: 1em;
+    height: 1em;
+    transition: 0.3s;
+    margin-right: 1em;
+}
+
+.register_container .register_title svg:hover{
+    fill: rgb(255, 101, 101);
+    transition: 0.3s;
+}
+
+.register_container .register_title svg:active{
+    fill: rgb(111, 15, 15);
+    transition: 0.3s;
+}
+
+.register_container form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 80%;
+    width: 80%;
+}
+
+.register_container form input{
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: white;
+    font-size: 1em;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.444);
+}
+
+.register_container form button {
+    cursor: pointer;
+    border: none;
+    font-size: 1em;
+    background: var(--color2);
+    padding: 1em;
+    border-radius: 1em;
+    transition: 0.3s;
+    font-weight: 600;
+}
+
+.register_container form button:hover {
+    background: var(--color2-bright);
+    color: white;
+    transition: 0.3s;
+}
+
+.register_container form button:active {
+    background: var(--color2-dark);
+    transition: 0.3s;
+}
+/*RegisterPopUp -- Fin*/
+
+/*Home -- Inicio*/
+
+nav{
+    background: var(--color1-bright);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 3em;
+}
+
+nav .nav_title{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+nav .nav_title svg{
+    width: 2.5em;
+    height: 2.5em;
+}
+
+nav .nav_menu{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    height: 100%;
+}
+
+nav .nav_menu .nav_item{
+    display: grid;
+    align-items: center;
+    margin:0 0.5em;
+    padding: 0 0.5em;
+    height: 100%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+nav .nav_menu .nav_item:hover{
+    background: var(--color1-brighter);
+}
+
+
+.home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.home .article{
+    width: 40%;
+    background: white;
+    border-radius: 1em;
+    padding: 0 1em;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1em 0;
+}
+
+.home .article .article_author{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.home .article .article_author a{
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.home .article .article_author a:hover{
+    color: var(--color1-bright);
+}
+
+.home .article p{
+    text-align: justify;
+    margin: 1em 0;
+}
+
+.home .article img{
+    width: 100%;
+    object-fit: cover;
+    margin: 1em 0;
+}
+
+.home .article button{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 120%;
+    cursor: pointer;
+    border: none;
+    background: var(--color1-bright);
+    height: 3em;
+    transition: 0.3s;
+}
+
+.home .article button:hover{
+    background: var(--color1-brighter);
+    transition: 0.3s;
+}
+
+.home .article button:active{
+    background: var(--color1);
+    transition: 0.3s;
+}
+
+.home .article button p{
+    font-size: 2em;
+    color: white;
+}
+
+.home .article button svg{
+    width: 2em;
+    height: 2em;
+    fill: white
+}
+/*Home -- Fin*/
+
+/*CommentsPopUp -- Inicio*/
+
+.comments_back{
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.486);
+    display: grid;
+    place-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    backdrop-filter: blur(2px);
+}
+
+.comments_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    border-radius: 1em;
+    width: 40%;
+    height: 80%;
+}
+
+.comments_container .comments_title{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 1em;
+    color: rgb(75, 75, 75);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.444);
+}
+
+.comments_container .comments_title p{
+    margin-left: 1em;
+}
+
+.comments_container .comments_title svg {
+    fill: red;
+    width: 1em;
+    height: 1em;
+    transition: 0.3s;
+    margin-right: 1em;
+}
+
+.comments_container .comments_title svg:hover{
+    fill: rgb(255, 101, 101);
+    transition: 0.3s;
+}
+
+.comments_container .comments_title svg:active{
+    fill: rgb(111, 15, 15);
+    transition: 0.3s;
+}
+
+.comments_container .comment_list{
+    width: 90%;
+    height: 63%;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.comments_container .comment_list .comment {
+    width: 100%;
+    border-top: 2px solid rgb(201, 201, 201);
+}
+
+.comments_container .comment_add{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.comments_container .comment_add textarea {
+    width: 80%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: rgb(0, 0, 0);
+    font-size: 1em;
+    border-bottom: 2px solid rgb(0, 0, 0);
+    resize: none;
+}
+
+.comments_container .comment_add svg{
+    width: 1.5em;
+    height: 1.5em;
+    fill: var(--color2);
+    transition: 0.3s;
+}
+
+.comments_container .comment_add svg:hover{
+    fill: var(--color2-bright);
+    transition: 0.3s;
+}
+
+.comments_container .comment_add svg:active{
+    fill: var(--color2-dark);
+    transition: 0.3s;
+}
+/*CommentsPopUp -- Fin*/
+
+/*profile -- Inicio*/
+
+.profile_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    width: 100%;
+    height: 50vh;
+    background: url(../Assets/subtle-prism.svg);
+}
+
+.profile_container .profile_picture{
+    width: 35vh;
+    height: 35vh;
+    display: grid;
+    align-items: center;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--color2);
+}
+
+.profile_container .profile_picture img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile_container .profile_data{
+    color: white;
+    font-size: 3em;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.profile_container .profile_data svg{
+    fill: var(--color2);
+    width: 1em;
+    height: 1em;
+    margin: 0 1em;
+    transition: 0.3s;
+}
+
+.profile_container .profile_data svg:hover{
+    fill: var(--color2-bright);
+    transition: 0.3s;
+}
+
+.profile_container .profile_data svg:active{
+    fill: var(--color2-dark);
+    transition: 0.3s;
+}
+/*profile -- Fin*/
+
+/*changeDataPopUp -- Inicio*/
+
+.change_back{
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.486);
+    display: grid;
+    place-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    backdrop-filter: blur(2px);
+}
+
+.change_container{
+    width: 30%;
+    height: 50%;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 1em;
+}
+
+.change_container .change_title{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 1em;
+    color: rgb(75, 75, 75);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.444);
+}
+
+.change_container .change_title p{
+    margin-left: 1em;
+}
+
+.change_container .change_title svg {
+    fill: red;
+    width: 1em;
+    height: 1em;
+    transition: 0.3s;
+    margin-right: 1em;
+}
+
+.change_container .change_title svg:hover{
+    fill: rgb(255, 101, 101);
+    transition: 0.3s;
+}
+
+.change_container .change_title svg:active{
+    fill: rgb(111, 15, 15);
+    transition: 0.3s;
+}
+
+.change_container form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 80%;
+    width: 90%;
+}
+
+.change_container form input{
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: rgb(0, 0, 0);
+    font-size: 1em;
+    border-bottom: 2px solid var(--color1);
+}
+
+.change_container form button {
+    cursor: pointer;
+    border: none;
+    font-size: 1em;
+    background: var(--color2);
+    padding: 1em;
+    border-radius: 1em;
+    transition: 0.3s;
+    font-weight: 600;
+}
+
+.change_container form button:hover {
+    background: var(--color2-bright);
+    color: white;
+    transition: 0.3s;
+}
+
+.change_container form button:active {
+    background: var(--color2-dark);
+    transition: 0.3s;
+}
+/*changeDataPopUp -- Fin*/
+
+/*CreateArticle -- Inicio*/
+
+.create_container{
+    margin-top: 20vh;
+    width: 30vw;
+    height: 50vh;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 1em;
+}
+
+.create_container .create_title{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 1em;
+    color: rgb(75, 75, 75);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.444);
+}
+
+.create_container .create_title p{
+    margin-left: 1em;
+}
+
+.create_container .create_title svg {
+    fill: red;
+    width: 1em;
+    height: 1em;
+    transition: 0.3s;
+    margin-right: 1em;
+}
+
+.create_container .create_title svg:hover{
+    fill: rgb(255, 101, 101);
+    transition: 0.3s;
+}
+
+.create_container .create_title svg:active{
+    fill: rgb(111, 15, 15);
+    transition: 0.3s;
+}
+
+.create_container form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 80%;
+    width: 90%;
+}
+
+.create_container form textarea {
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: rgb(0, 0, 0);
+    font-size: 1em;
+    border-bottom: 2px solid rgb(0, 0, 0);
+    resize: none;
+}
+
+.create_container form input{
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: rgb(0, 0, 0);
+    font-size: 1em;
+    border-bottom: 2px solid var(--color1);
+}
+
+.create_container form button {
+    cursor: pointer;
+    border: none;
+    font-size: 1em;
+    background: var(--color2);
+    padding: 1em;
+    border-radius: 1em;
+    transition: 0.3s;
+    font-weight: 600;
+}
+
+.create_container form button:hover {
+    background: var(--color2-bright);
+    color: white;
+    transition: 0.3s;
+}
+
+.create_container form button:active {
+    background: var(--color2-dark);
+    transition: 0.3s;
+}
+/*CreateArticle -- Fin*/
