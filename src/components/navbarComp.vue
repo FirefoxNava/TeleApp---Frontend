@@ -5,16 +5,16 @@
             <h2>TeleApp</h2>
         </div>
         <div class="nav_menu">
-            <div class="nav_item">
+            <div class="nav_item" v-on:click="goToHome()">
                 <p>Inicio</p>
             </div>
-            <div class="nav_item">
+            <div class="nav_item" v-on:click="goToCreate()">
                 <p>Crear Publicación</p>
             </div>
-            <div class="nav_item">
+            <div class="nav_item" v-on:click="goToProfile()">
                 <p>Perfil</p>
             </div>
-            <div class="nav_item">
+            <div class="nav_item" v-on:click="logOut()">
                 <p>Cerrar Sesión</p>
             </div>
         </div>
@@ -32,29 +32,14 @@ export default {
       localStorage.removeItem("token");
       this.$router.push("/login");
     },
-    goToCart() {
-      this.$router.push("/cart");
-    },
-    goToOrders() {
-      if (localStorage.rol == "user") {
-        this.$router.push("/orders");
-      } else {
-        this.$router.push("/ordersAdmin");
-      }
-    },
-    goToShop() {
-      if (localStorage.rol == "user") {
-        this.$router.push("/shop");
-      } else {
-        this.$router.push("/adminShop");
-      }
-    },
     goToHome() {
-      if (localStorage.rol == "user") {
-        this.$router.push("/home");
-      } else {
-        this.$router.push("/adminHome");
-      }
+      this.$router.push("/home");
+    },
+    goToCreate() {
+      this.$router.push("/createArticle");
+    },
+    goToProfile() {
+      this.$router.push("/profile");
     },
   },
 };

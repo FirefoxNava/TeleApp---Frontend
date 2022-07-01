@@ -1,70 +1,75 @@
 <template>
+    <navbarComp></navbarComp>
+    <commentsPopUpComp v-if="commentsPopUpState" :articleData="articleInfo" @disableCommentsPopUp="disableComments()"></commentsPopUpComp>
     <section class="profile_container">
         <div class="profile_picture">
-            <img src="https://png.pngtree.com/element_our/20190529/ourlarge/pngtree-user-cartoon-girl-avatar-image_1200112.jpg" alt="Perfil">
+            <img :src="userData.profilePicture" alt="Perfil">
         </div>
         <div class="profile_data">
-            <p>Maria Garcia</p>
+            <p>{{userData.name}}</p>
             <svg enable-background="new 0 0 56 56" version="1.1" viewBox="0 0 56 56" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
                 <path d="m28 0c-15.439 0-28 12.561-28 28s12.561 28 28 28 28-12.561 28-28-12.561-28-28-28zm12 41h-24c-1.104 0-2-0.896-2-2s0.896-2 2-2h24c1.104 0 2 0.896 2 2s-0.896 2-2 2zm0-11h-24c-1.104 0-2-0.896-2-2s0.896-2 2-2h24c1.104 0 2 0.896 2 2s-0.896 2-2 2zm0-11h-24c-1.104 0-2-0.896-2-2s0.896-2 2-2h24c1.104 0 2 0.896 2 2s-0.896 2-2 2z"/>
             </svg>
         </div>
     </section>
-        <section class="home">
-        <div class="article">
-            <div class="article_author">
-                <a>Maria Garcia</a>
-                <p>Julio 25</p>
-            </div>
-            <p>Omnis accusamus error, accusantium adipisci aut voluptas laborum? Inventore vero perferendis odit ipsum enim quia doloribus.</p>
-            <img src="https://www.xtrafondos.com/wallpapers/mariposa-en-una-flor-4684.jpg" alt="Imagen">
-            <button>
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <title>comment</title>
-                    <path class="cls-1" d="M21.5,8v6A4.505,4.505,0,0,1,17,18.5H6.829a1.491,1.491,0,0,0-1.061.439L3.354,21.354A.5.5,0,0,1,3,21.5a.512.512,0,0,1-.191-.038A.5.5,0,0,1,2.5,21V8A4.505,4.505,0,0,1,7,3.5H17A4.505,4.505,0,0,1,21.5,8Z" data-name="comment-Filled"/>
-                </svg>
-                <p>Comentar</p>
-            </button>
-        </div>
-        <div class="article">
-            <div class="article_author">
-                <a>Maria Garcia</a>
-                <p>Julio 25</p>
-            </div>
-            <p>Omnis accusamus error, accusantium adipisci aut voluptas laborum? Inventore vero perferendis odit ipsum enim quia doloribus.</p>
-            <img src="https://www.diariomotor.com/imagenes/picscache/1440x655c/marussia-b2-1_1440x655c.jpg" alt="Imagen">
-            <button>
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <title>comment</title>
-                    <path class="cls-1" d="M21.5,8v6A4.505,4.505,0,0,1,17,18.5H6.829a1.491,1.491,0,0,0-1.061.439L3.354,21.354A.5.5,0,0,1,3,21.5a.512.512,0,0,1-.191-.038A.5.5,0,0,1,2.5,21V8A4.505,4.505,0,0,1,7,3.5H17A4.505,4.505,0,0,1,21.5,8Z" data-name="comment-Filled"/>
-                </svg>
-                <p>Comentar</p>
-            </button>
-        </div>
-        <div class="article">
-            <div class="article_author">
-                <a>Maria Garcia</a>
-                <p>Julio 25</p>
-            </div>
-            <p>Omnis accusamus error, accusantium adipisci aut voluptas laborum? Inventore vero perferendis odit ipsum enim quia doloribus.</p>
-            <img src="https://images.adsttc.com/media/images/58e4/2652/e58e/ce64/2400/004c/large_jpg/X17_Torre_Colpatria.jpg?1491347014" alt="Imagen">
-            <button>
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <title>comment</title>
-                    <path class="cls-1" d="M21.5,8v6A4.505,4.505,0,0,1,17,18.5H6.829a1.491,1.491,0,0,0-1.061.439L3.354,21.354A.5.5,0,0,1,3,21.5a.512.512,0,0,1-.191-.038A.5.5,0,0,1,2.5,21V8A4.505,4.505,0,0,1,7,3.5H17A4.505,4.505,0,0,1,21.5,8Z" data-name="comment-Filled"/>
-                </svg>
-                <p>Comentar</p>
-            </button>
-        </div>
+    <section class="home" v-if="articleState">
+        <articleComp v-for="article in articles" :key="article._id" :articleData="article" @showCommentsPopUp="showComments"></articleComp>
     </section>
 </template>
 
 <script>
+//Componentes
+import navbarComp from '../components/navbarComp.vue';
+import articleComp from '../components/articleComp.vue';
+import commentsPopUpComp from '../components/commentsPopUpComp.vue';
 
+//Librerias
+import axios from "axios";
+import swal from "sweetalert";
 
 export default {
-  methods: {
-  },
+    components: {
+        navbarComp,
+        articleComp,
+        commentsPopUpComp
+    },
+    data() {
+        return {
+            headers: {API_KEY: localStorage.token},
+            userData: JSON.parse(localStorage.getItem("userData")),
+            articles: null,
+            articleState: false,
+            commentsPopUpState: false,
+            articleInfo: null
+         };
+    },
+    methods: {
+        async getArticles() {
+            await axios
+                .get(import.meta.env.VITE_API_ROUTE + "/article/articleAuthor/" + this.userData._id, {headers: this.headers,})
+                .then((response) => {
+                if (response.status == 200) {
+                    this.articles = response.data.articles;
+                    this.articleState = true
+                }
+                })
+                .catch((error) => {
+                swal("Operación Fallida", "Se ha generado un error al solicitar las publicaciones", "error");
+                console.log(error);
+                });
+        },
+        showComments(n) {
+            this.commentsPopUpState = n[0]
+            this.articleInfo = n[1]
+        },
+        disableComments() {
+            this.commentsPopUpState = false
+            this.articleInfo = null
+        }
+    },
+    mounted() {
+        this.getArticles()
+    }
 };
 </script>
 

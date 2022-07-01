@@ -7,19 +7,27 @@ const router = createRouter({
       path: "/login",
       name: "Login",
       component: () => import("../views/loginView.vue"),
-      /* beforeEnter: () => {
-        if (localStorage.rol == "user") {
+      beforeEnter: () => {
+       if (localStorage.rol == "user") {
           return { name: "Home" };
-        } else if (localStorage.rol == "admin") {
-          return { name: "adminHome" };
         }
-      }, */
+      },
     },
     {
         path: "/createArticle",
         name: "createArticle",
         component: () => import("../views/createArticle.vue"),
-      },
+    },
+    {
+        path: "/home",
+        name: "Home",
+        component: () => import("../views/homeView.vue"),
+    },
+    {
+      path: "/profile",
+      name: "Profile",
+      component: () => import("../views/profileView.vue"),
+    },
     {
       path: "/:pathMatch(.*)*",
       name: "Not Found",

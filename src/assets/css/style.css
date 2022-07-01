@@ -503,7 +503,7 @@ nav .nav_menu .nav_item:hover{
     flex-direction: row;
     width: 100%;
     height: 50vh;
-    background: url(../Assets/subtle-prism.svg);
+    background: url(../subtle-prism.svg);
 }
 
 .profile_container .profile_picture{
