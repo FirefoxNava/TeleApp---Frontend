@@ -74,8 +74,7 @@ export default {
             var user = await loginUser(this.email, this.password);
 
             if (user) {
-                //this.$router.push("/home");
-                console.log("Hurra :D")
+                this.$router.push("/home");
             } else {
                 swal("Error", "Los datos ingresados son incorrectos", "error");
             }
