@@ -1,4 +1,5 @@
 <template>
+    <navbarComp></navbarComp>
     <div class="create_container">
         <div class="create_title">
             <p>Crear una Publicación</p>
@@ -16,8 +17,13 @@
 
 <script>
 
+import navbarComp from '../components/navbarComp.vue';
+
 
 export default {
+    components: {
+        navbarComp
+    },
   methods: {
   },
 };

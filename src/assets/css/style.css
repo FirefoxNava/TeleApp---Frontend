@@ -26,6 +26,14 @@ body{
     position: relative;
 }
 
+#app{
+    width: 100%;
+    height: auto;
+    position: relative;
+    display: grid;
+    place-items: center;
+}
+
 /*Login -- Inicio*/
 
 .login_container {

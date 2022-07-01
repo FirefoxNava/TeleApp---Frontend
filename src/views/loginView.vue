@@ -1,18 +1,19 @@
 <template>
+    <registerPopUpComp v-if="registerPopUpState" @disableRegisterPopUp="disableRegisterPopUp()"></registerPopUpComp>
     <section class="login_container">
         <div class="login">
             <div class="login_title">
                 <svg enable-background="new 0 0 32 32" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="m26.87 12.49-10 18c-0.18 0.32-0.51 0.51-0.87 0.51-0.08 0-0.17-0.01-0.25-0.03-0.44-0.12-0.75-0.51-0.75-0.97v-11h-9c-0.34 0-0.65-0.17-0.84-0.45-0.18-0.28-0.21-0.64-0.08-0.95l7-16c0.16-0.36 0.52-0.6 0.92-0.6h6c0.33 0 0.64 0.16 0.83 0.44 0.18 0.27 0.22 0.62 0.1 0.93l-3.45 8.63h9.52c0.35 0 0.68 0.19 0.86 0.49 0.18 0.31 0.19 0.69 0.01 1z" fill="#FFB841"/></svg>
                 <h2>TeleApp</h2>
             </div>
-            <form >
-                <input type="text" placeholder="Email">
-                <input type="password" placeholder="Contraseña">
+            <form v-on:submit.prevent="verifyUser()">
+                <input type="text" placeholder="Email" v-model="email">
+                <input type="password" placeholder="Contraseña" v-model="password">
                 <button type="submit">Iniciar Sesión</button>
             </form>
             <div class="login_advice">
                 <p>¿No estas registrado?</p>
-                <a>Crea una Cuenta</a>
+                <a v-on:click="enableRegisterPopUp()">Crea una Cuenta</a>
             </div>
         </div>
         <div class="login_image">
@@ -23,10 +24,69 @@
 
 <script>
 
+//Utilidades y Librerias
+import { loginUser } from '../security/loginUser';
+import swal from "sweetalert";
+import useVuelidate from "@vuelidate/core";
+
+//Validaciones necesarias
+import { required } from "@vuelidate/validators";
+
+//Componentes
+import registerPopUpComp from '../components/registerPopUpComp.vue';
 
 export default {
-  methods: {
-  },
+    components: {
+        registerPopUpComp
+    },
+    setup() {
+        return {
+            v$: useVuelidate(),
+        };
+    },
+    data() {
+        return {
+            registerPopUpState: false,
+            email: null,
+            password: null,
+        };
+    },
+    validations() {
+        return {
+            email: {
+                required,
+            },
+            password: {
+                required,
+            },
+        };
+    },
+    methods: {
+        async verifyUser() {
+            //Vuelidate
+            this.v$.$touch();
+
+            if (this.v$.$invalid) {
+                swal("Error", "Todos los campos deben ser diligenciados", "error");
+                return false;
+            }
+
+            var user = await loginUser(this.email, this.password);
+
+            if (user) {
+                //this.$router.push("/home");
+                console.log("Hurra :D")
+            } else {
+                swal("Error", "Los datos ingresados son incorrectos", "error");
+            }
+        },
+        enableRegisterPopUp() {
+            this.registerPopUpState = true;
+        },
+        disableRegisterPopUp() {
+            this.registerPopUpState = false;
+        }
+    }
 };
 </script>
 
