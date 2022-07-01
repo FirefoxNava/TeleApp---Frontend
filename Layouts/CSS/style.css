@@ -318,6 +318,15 @@ nav .nav_menu .nav_item:hover{
     width: 100%;
 }
 
+.home .article .article_author a{
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.home .article .article_author a:hover{
+    color: var(--color1-bright);
+}
+
 .home .article p{
     text-align: justify;
     margin: 1em 0;
@@ -363,3 +372,116 @@ nav .nav_menu .nav_item:hover{
     fill: white
 }
 /*Home -- Fin*/
+
+/*CommentsPopUp -- Inicio*/
+
+.comments_back{
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.486);
+    display: grid;
+    place-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    backdrop-filter: blur(2px);
+}
+
+.comments_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    border-radius: 1em;
+    width: 40%;
+    height: 80%;
+}
+
+.comments_container .comments_title{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 1em;
+    color: rgb(75, 75, 75);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.444);
+}
+
+.comments_container .comments_title p{
+    margin-left: 1em;
+}
+
+.comments_container .comments_title svg {
+    fill: red;
+    width: 1em;
+    height: 1em;
+    transition: 0.3s;
+    margin-right: 1em;
+}
+
+.comments_container .comments_title svg:hover{
+    fill: rgb(255, 101, 101);
+    transition: 0.3s;
+}
+
+.comments_container .comments_title svg:active{
+    fill: rgb(111, 15, 15);
+    transition: 0.3s;
+}
+
+.comments_container .comment_list{
+    width: 90%;
+    height: 63%;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.comments_container .comment_list .comment {
+    width: 100%;
+    border-top: 2px solid rgb(201, 201, 201);
+}
+
+.comments_container .comment_add{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.comments_container .comment_add textarea {
+    width: 80%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: rgb(0, 0, 0);
+    font-size: 1em;
+    border-bottom: 2px solid rgb(0, 0, 0);
+    resize: none;
+}
+
+.comments_container .comment_add svg{
+    width: 1.5em;
+    height: 1.5em;
+    fill: var(--color2);
+    transition: 0.3s;
+}
+
+.comments_container .comment_add svg:hover{
+    fill: var(--color2-bright);
+    transition: 0.3s;
+}
+
+.comments_container .comment_add svg:active{
+    fill: var(--color2-dark);
+    transition: 0.3s;
+}
+/*CommentsPopUp -- Fin*/
